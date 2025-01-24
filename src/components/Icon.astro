@@ -1,0 +1,26 @@
+---
+const {
+  xmlns,
+  viewBox = "0 0 512 512",
+  path,
+  width = "24",
+  height = "24",
+  color = "#000",
+  ...props
+} = Astro.props;
+if (!xmlns || !path) {
+  console.error("Icon: 'xmlns' and 'path' is required");
+  return null;
+}
+---
+
+<svg
+  xmlns={xmlns}
+  viewBox={viewBox}
+  width={width}
+  height={height}
+  fill={color}
+  {...props}
+>
+<path d={path}/>
+</svg>

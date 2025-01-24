@@ -1,0 +1,196 @@
+---
+import { Image } from "astro:assets";
+import personImage from "../assets/person/person.png";
+import Button from "./Button.astro";
+---
+
+<div id="container">
+  <div class="container-content">
+    <div class="header-newslatter-section">
+    <div class="container-person-img">
+      <Image
+        src={personImage}
+        alt="Cleverson Borges Advogado foto de Perfil"
+        loading="lazy"
+      />
+    </div>
+    <div class="container-content-text">
+        <div>
+          <h1>Porque eu sou sua melhor opção ?</h1>
+          <h2>Cleverson Borges Advogado</h2>
+        </div>
+        <p>
+          Contrary to popular belief, Lorem Ipsum is not simply random text. It
+          has roots in a piece of classical Latin literature from 45 BC, making
+          it over 2000 years old. Richard McClintock, a Latin professor at
+          Hampden-Sydney College in Virginia, looked up one of the more obscure
+          Latin words,
+        </p>
+        <Button />
+    </div>
+  </div>
+  <span class="divisor-trace"> &#60;&#60;&#60; </span>
+    <div class="container-newslatter-footer">
+      <div class="container-newslatter-text">
+        <h2>Receba Dicas Semanais</h2>
+        <p class="paragraph-content-newslatter"> 
+          Informações relevantes sobre economia, direito, curiosidades. Todas
+          as Semanas!
+        </p>
+      </div>
+      <div class="container-newslatter-form">
+        <div>
+          <form action="" class="newslatter-form">
+            <input type="email" name="email" id="" placeholder="Digite seu email"/>
+            <input type="submit" value="Inscrever">
+          </form>
+        </div>
+        <span class="alert-content">Fique por dentro de tudo.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: burlywood; */
+  }
+  .container-content{
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 40px;
+    
+    /* background-color: red; */
+    flex-direction: column;
+  }
+  .container-content-text{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    align-self: flex-end;
+    color: var(--light-color);
+    line-height: 24px;
+  }
+  .container-content-text > div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .container-content-text > div > h1{
+    color: var(--secondary-color);
+    font-size: 32px;
+    font-weight: 100;
+  }
+  .container-content-text > div> h1,h2{
+    margin: 0;
+  }
+  .header-newslatter-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .header-newslatter-section div{
+   max-width: 530px;
+   min-width: 300px;
+  }
+  .container-newslatter-footer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .container-newslatter-footer div{
+    width: 100%;
+    min-width: 300px;
+    max-width: 530px;
+  
+  }
+  .container-person-img{
+    display: flex;
+    align-items: flex-end;
+  }
+  .container-person-img img{
+    width: 400px;
+    object-fit: contain;
+    object-position: bottom;
+  }
+  .container-newslatter-text{
+    font-size: 16px;
+    color: var(--light-color);
+
+  }
+  .container-newslatter-text p{
+   font-size: 18px;
+   font-weight: 100;
+   margin: 0;
+
+  }
+  .container-newslatter-text h2{
+    font-size: 24px;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+  }
+  .divisor-trace{
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    color: var(--secondary-color);
+  }
+  .container-newslatter-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .container-newslatter-form div{
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  .newslatter-form{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .newslatter-form input[type="email"]{
+    width: 80%;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+  }
+  .newslatter-form input[type="submit"]{
+    font-size: 12px;
+    border-radius: 4px;
+    border: none;
+    width: 20%;
+    min-width: 100px;
+    cursor: pointer;
+  }
+  .alert-content{
+    font-size: 12px;
+    color: var(--light-color);
+  }
+</style>
