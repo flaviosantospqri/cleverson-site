@@ -1,0 +1,92 @@
+---
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+
+const { title, properties, pathSvg } = Astro.props;
+---
+
+<div id="container" class="item">
+  <div class="container-header-card">
+    <Icon
+      xmlns="http://www.w3.org/2000/svg"
+      color="#5f2823"
+      width="32"
+      height="32"
+      path={pathSvg}
+      viewBox="0 0 640 512"
+    />
+    <p>{title}</p>
+  </div>
+  <ul class="list-card-service">
+    {
+      properties.map((item: string) => (
+        <li >
+          <Icon
+            xmlns="http://www.w3.org/2000/svg"
+            color="#39D98A"
+            width="16"
+            height="16"
+            path="M342.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 178.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l80 80c12.5 12.5 32.8 12.5 45.3 0l160-160zm96 128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 402.7 54.6 297.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l256-256z"
+            viewBox="0 0 448 512"
+          />
+          {item}
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style>
+  #container {
+    width: 280px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    padding: 20px;
+    border-radius: 8px;
+    color: var(--light-color);
+    background-color: rgba(217, 217, 217, 0.1);
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .container-header-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .container-header-card p{
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .list-card-service{
+    list-style-type: none;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    height: 200px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+  .container-button-card{
+    background-color: #FAFAFC;
+    color: #3A3A3C;
+    min-width: 200px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    box-shadow: 0px 2px 6px 0px rgba(255,255,255,0.1);
+    box-sizing: border-box;
+    display: none;
+  }
+  
+</style>

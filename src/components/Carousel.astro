@@ -1,0 +1,87 @@
+---
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import SwiperCore from 'swiper';
+import { Pagination } from 'swiper/modules';
+
+// Ative o módulo de paginação
+SwiperCore.use([Pagination]);
+
+import CardService from './CardService.astro';
+const { items } = Astro.props;
+---
+
+<div class="carousel-container-wrapper">
+  <Swiper
+    spaceBetween={30}
+    slidesPerView={3}
+    loop={true}
+    pagination={{ clickable: true, el: '.swiper-pagination' }}
+    breakpoints={{
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+    }}
+  >
+    {items.map((item, index) => (
+      <SwiperSlide key={index} class="carousel-slide">
+        <CardService {...item} />
+      </SwiperSlide>
+    ))}
+  </Swiper>
+  <div class="carousel-bullets swiper-pagination"></div>
+</div>
+
+<style>
+  .carousel-container-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .swiper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.3); /* Sombras sutis */
+    padding: 0 30px; /* Adiciona espaçamento lateral */
+  }
+
+  .carousel-slide {
+    flex: 0 0 calc(33.3333% - 20px); 
+    margin: 0 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .swiper-pagination-bullet {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  .swiper-pagination-bullet-active {
+    background-color: #39D98A;
+  }
+
+  @media (max-width: 768px) {
+    .swiper {
+      overflow: visible; /* Desabilitar o carrossel horizontal em telas pequenas */
+      padding: 0; /* Remove padding lateral */
+    }
+
+    .carousel-slide {
+      margin-bottom: 15px;
+      min-width: 100%; /* Faz com que cada card ocupe 100% da tela */
+    }
+
+    .swiper-pagination {
+      display: none; /* Remover bullets em telas pequenas */
+    }
+  }
+</style>

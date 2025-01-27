@@ -1,6 +1,162 @@
+---
+import Button from "./Button.astro";
+import NavBar from "./NavBar.astro";
+import InstragramCard from "./InstragramCard.astro";
+---
+<div id="home"></div>
 <div id="container">
-    <h1>Header</h1>
+  <NavBar />
+  <div class="content-impact-phrase" data-observe>
+    <div class="content-owner-name">
+      <h1>Cleverson Borges</h1>
+      <p>Advogado</p>
+    </div>
+    <div class="content-owner-phrase-citation">
+      <p>“A justiça não é uma questão de tempo, é uma questão de coragem.”<br> <span> – Napoléon Bonaparte.</span></p>
+    </div>
   </div>
-  
-  <style></style>
-  
+  <div class="main-banner">
+    <div class="ctc-banner">
+      <div class="ctc-text-element-btn">
+      <h2>Ter um advogado é mais do que necessário.<br/> <span class="content-target"> Esteja pronto!</span></h2>
+      <span class="divisor-trace"> &#62;&#62;&#62; </span>
+      <Button />
+    </div>
+      <div class="container-card-instagram">
+        <InstragramCard />
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  if (typeof window !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', () => {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const handleIntersection = (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(handleIntersection, options);
+      const blocks = document.querySelectorAll("[data-observe]");
+      blocks.forEach(block => observer.observe(block));
+    });
+  }
+</script>
+
+<style>
+  #container {
+    color: var(--light-color);
+  }
+  h1 {
+    margin: 0;
+  }
+  .main-banner {
+    background-image: url("../assets/all/imgbanner.png");
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+    box-shadow: inset 3px 8px 5px -6px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
+  }
+  .ctc-banner {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+  }
+  .container-card-instagram {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    min-height: 300px;
+    max-width: 500px;
+    justify-content: flex-end;
+  }
+  .content-impact-phrase{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    max-width: 1200px;
+    align-items: center;
+    margin: 0 auto;
+    height: 350px;
+  }
+  .content-owner-name{}
+  .content-owner-name p{
+    margin: 0;
+    color: var(--secondary-color);
+    font-weight: thin;
+    font-size: 32px;
+    display: flex;
+  }
+  .content-owner-phrase-citation{
+    width: 100%;
+    max-width: 500px;
+    font-size: 24px;
+    font-style: italic;
+  }
+  span{
+    color: rgba(255, 255, 255, 0.1);
+  }
+  .ctc-banner{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+  }
+  .ctc-text-element-btn{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-content: space-between;
+  }
+  .divisor-trace{
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    color: var(--secondary-color);
+  }
+  .content-target{
+    color: var(--secondary-color);
+  }
+  .content-owner-name{
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  .content-owner-phrase-citation{
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  [data-observe].visible .content-owner-name,
+[data-observe].visible .content-owner-phrase-citation {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+</style>
