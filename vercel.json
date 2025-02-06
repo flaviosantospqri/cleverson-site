@@ -7,5 +7,6 @@
         "distDir": "dist/client"
       }
     }
-  ]
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "/dist/client/$1" }]
 }
