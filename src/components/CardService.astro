@@ -58,6 +58,13 @@ const { title, properties, pathSvg } = Astro.props;
       min-width: 300px;
     }
   }
+  @media (max-width: 520px) {
+    #container {
+      width: 100%;
+      max-width: 300px;
+      min-width: 300px;
+    }
+  }
   .container-header-card {
     display: flex;
     flex-direction: column;

@@ -5,31 +5,30 @@ import Button from "./Button.astro";
 ---
 
 <script type="text/javascript">
-  if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', () => {
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
       const options = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: "0px",
+        threshold: 0.1,
       };
 
       const handleIntersection = (entries, observer) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
           } else {
-            entry.target.classList.remove('visible');
+            entry.target.classList.remove("visible");
           }
         });
       };
 
       const observer = new IntersectionObserver(handleIntersection, options);
       const blocks = document.querySelectorAll("[data-observe]");
-      blocks.forEach(block => observer.observe(block));
+      blocks.forEach((block) => observer.observe(block));
     });
   }
 </script>
-
 
 <div id="container">
   <div class="container-content">
@@ -96,6 +95,7 @@ import Button from "./Button.astro";
     max-width: 1200px;
     gap: 40px;
     flex-direction: column;
+    align-items: center; /* Centraliza os elementos horizontalmente */
   }
   .container-content-text {
     height: 100%;
@@ -149,6 +149,57 @@ import Button from "./Button.astro";
   .container-person-img {
     display: flex;
     align-items: flex-end;
+  }
+  @media (max-width: 768px) {
+    .container-person-img {
+      width: 100%;
+    }
+    .header-newslatter-section div {
+      display: flex;
+      max-width: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .container-content-text {
+      display: flex;
+      text-align: left !important;
+    }
+    .container-newslatter-footer {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .container-content {
+      padding: 0 20px;
+    }
+    .container-button {
+      width: 100%;
+    }
+  }
+  @media (max-width: 948px) {
+    .container-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column; /* Coloca os elementos em coluna */
+      width: 100%;
+    }
+    .header-newslatter-section,
+    .container-newslatter-footer {
+      flex-direction: column; /* Coloca os elementos em coluna */
+      align-items: center; /* Centraliza os elementos horizontalmente */
+      text-align: center; /* Centraliza o texto */
+    }
+    .container-content-text,
+    .container-newslatter-text {
+      text-align: center; /* Centraliza o texto */
+    }
+    .container-content-text {
+      max-width: 1000px !important;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
   }
   .container-person-img img {
     width: 400px;
@@ -225,22 +276,28 @@ import Button from "./Button.astro";
     color: var(--light-color);
   }
   .content-effect {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-.container-newslatter-text{
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-[data-observe].visible .content-effect {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 1s ease, transform 1s ease;
-}
-[data-observe].visible .container-newslatter-text {
-  opacity: 1;
-  transform: translateX(0);
-}
+    opacity: 0;
+    transform: translateX(50px);
+    transition:
+      opacity 1s ease,
+      transform 1s ease;
+  }
+  .container-newslatter-text {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition:
+      opacity 1s ease,
+      transform 1s ease;
+  }
+  [data-observe].visible .content-effect {
+    opacity: 1;
+    transform: translateX(0);
+    transition:
+      opacity 1s ease,
+      transform 1s ease;
+  }
+  [data-observe].visible .container-newslatter-text {
+    opacity: 1;
+    transform: translateX(0);
+  }
 </style>
