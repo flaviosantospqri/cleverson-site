@@ -13,10 +13,14 @@ import Icon from "./Icon.astro";
       <section class="block-content-element">
         <h2>Quem sou</h2>
         <p>
-          Cleverson Borges é advogado, formado pelas Faculdades Integradas Vianna Júnior em Juiz de Fora e conta com mais de 20 anos de experiência profissional nas mais diversas áreas (vendedor, auxiliar administrativo, representante de atendimento de call center).
+          Cleverson Borges é advogado, formado pelas Faculdades Integradas
+          Vianna Júnior em Juiz de Fora e conta com mais de 20 anos de
+          experiência profissional nas mais diversas áreas (vendedor, auxiliar
+          administrativo, representante de atendimento de call center).
         </p>
         <p class="enphases">
-          Atua há mais de 10 anos em vários ramos do Direito, representando com zelo e compromisso cada um dos seus clientes.
+          Atua há mais de 10 anos em vários ramos do Direito, representando com
+          zelo e compromisso cada um dos seus clientes.
         </p>
       </section>
       <Icon
@@ -32,9 +36,13 @@ import Icon from "./Icon.astro";
       <section class="block-content-element">
         <h2>O que eu faço</h2>
         <p>
-          Advogado com conhecimento em diversas áreas do direito, oferecendo soluções personalizadas e estratégicas para proteger seus interesses. Compromisso com ética, agilidade e resultados. Vamos conversar e encontrar o melhor caminho para você ou sua empresa?
+          Advogado com conhecimento em diversas áreas do direito, oferecendo
+          soluções personalizadas e estratégicas para proteger seus interesses.
+          Compromisso com ética, agilidade e resultados. Vamos conversar e
+          encontrar o melhor caminho para você ou sua empresa?
         </p>
       </section>
+      <div class="svg">
         <Icon
           xmlns="http://www.w3.org/2000/svg"
           color="rgba(255,255,255,0.1)"
@@ -43,97 +51,110 @@ import Icon from "./Icon.astro";
           viewBox="0 0 640 512"
           path="M117.9 62.4c-16.8-5.6-25.8-23.7-20.2-40.5s23.7-25.8 40.5-20.2l113 37.7C265 15.8 290.7 0 320 0c44.2 0 80 35.8 80 80c0 3-.2 5.9-.5 8.8l122.6 40.9c16.8 5.6 25.8 23.7 20.2 40.5s-23.7-25.8-40.5-20.2L366.4 145.2c-4.5 3.2-9.3 5.9-14.4 8.2L352 480c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l160 0 0-294.7c-21-9.2-37.2-27-44.2-49l-125.9-42zM200.4 288L128 163.8 55.6 288l144.9 0zM128 384C65.1 384 12.8 350 2 305.1c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1C243.2 350 190.9 384 128 384zm382.8-92.2L438.4 416l144.9 0L510.8 291.8zm126 141.3C626 478 573.7 512 510.8 512s-115.2-34-126-78.9c-2.6-11 1-22.3 6.7-32.1l95.2-163.2c5-8.6 14.2-13.8 24.1-13.8s19.1 5.3 24.1 13.8l95.2 163.2c5.7 9.8 9.3 21.1 6.7 32.1z"
         />
+      </div>
     </div>
   </div>
 </div>
 
 <style>
-#container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--light-color);
-}
+  #container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light-color);
+  }
 
-.container-content-element {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1200px;
-  font-size: 16px;
-  line-height: 30px;
-}
+  .container-content-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    font-size: 16px;
+    line-height: 30px;
+  }
 
-.block-content-element {
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+  .block-content-element {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
 
-.block-content-element h2 {
-  color: var(--secondary-color);
-}
+  .block-content-element h2 {
+    color: var(--secondary-color);
+  }
 
-.block {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 30px;
-}
+  .block {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+  }
 
-.who-i-am {
-  display: flex;
-  flex-direction: row-reverse;
-}
+  .who-i-am {
+    display: flex;
+    flex-direction: row-reverse;
+  }
 
-.enphases {
-  color: var(--secondary-color);
-}
+  .enphases {
+    color: var(--secondary-color);
+  }
 
-.block-content-element {
-  opacity: 0;
-  transform: translateY(50px); 
-  transition: opacity 1s ease, transform 1s ease; 
-}
+  .block-content-element {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+      opacity 1s ease,
+      transform 1s ease;
+  }
 
-[data-observe].visible .block-content-element {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+  [data-observe].visible .block-content-element {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (max-width: 948px) {
+    svg {
+      display: none;
+    }
+    .block-content-element {
+      width: 100%;
+      max-width: 100%;
+      padding: 0 10px;
+    }
+  }
 </style>
 
 <script type="text/javascript">
-  if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', () => {
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
       const options = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: "0px",
+        threshold: 0.1,
       };
 
       const handleIntersection = (entries, observer) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
           } else {
-            entry.target.classList.remove('visible');
+            entry.target.classList.remove("visible");
           }
         });
       };
 
       const observer = new IntersectionObserver(handleIntersection, options);
       const blocks = document.querySelectorAll("[data-observe]");
-      blocks.forEach(block => observer.observe(block));
+      blocks.forEach((block) => observer.observe(block));
     });
   }
 </script>
-

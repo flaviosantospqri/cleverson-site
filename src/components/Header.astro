@@ -3,6 +3,7 @@ import Button from "./Button.astro";
 import NavBar from "./NavBar.astro";
 import InstragramCard from "./InstragramCard.astro";
 ---
+
 <div id="home"></div>
 <div id="container">
   <NavBar />
@@ -12,16 +13,22 @@ import InstragramCard from "./InstragramCard.astro";
       <p>Advogado</p>
     </div>
     <div class="content-owner-phrase-citation">
-      <p>“A justiça não é uma questão de tempo, é uma questão de coragem.”<br> <span> – Napoléon Bonaparte.</span></p>
+      <p>
+        “A justiça não é uma questão de tempo, é uma questão de coragem.”<br />
+        <span> – Napoléon Bonaparte.</span>
+      </p>
     </div>
   </div>
   <div class="main-banner">
     <div class="ctc-banner">
       <div class="ctc-text-element-btn">
-      <h2>Ter um advogado é mais do que necessário.<br/> <span class="content-target"> Esteja pronto!</span></h2>
-      <span class="divisor-trace"> &#62;&#62;&#62; </span>
-      <Button />
-    </div>
+        <h2>
+          Ter um advogado é mais do que necessário.<br />
+          <span class="content-target"> Esteja pronto!</span>
+        </h2>
+        <span class="divisor-trace"> &#62;&#62;&#62; </span>
+        <Button />
+      </div>
       <div class="container-card-instagram">
         <InstragramCard />
       </div>
@@ -29,27 +36,27 @@ import InstragramCard from "./InstragramCard.astro";
   </div>
 </div>
 <script type="text/javascript">
-  if (typeof window !== 'undefined') {
-    document.addEventListener('DOMContentLoaded', () => {
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
       const options = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: "0px",
+        threshold: 0.1,
       };
 
       const handleIntersection = (entries, observer) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
           } else {
-            entry.target.classList.remove('visible');
+            entry.target.classList.remove("visible");
           }
         });
       };
 
       const observer = new IntersectionObserver(handleIntersection, options);
       const blocks = document.querySelectorAll("[data-observe]");
-      blocks.forEach(block => observer.observe(block));
+      blocks.forEach((block) => observer.observe(block));
     });
   }
 </script>
@@ -81,6 +88,7 @@ import InstragramCard from "./InstragramCard.astro";
     width: 100%;
     max-width: 1200px;
     justify-content: space-between;
+    padding: 10px;
   }
   .container-card-instagram {
     display: flex;
@@ -91,7 +99,7 @@ import InstragramCard from "./InstragramCard.astro";
     max-width: 500px;
     justify-content: flex-end;
   }
-  .content-impact-phrase{
+  .content-impact-phrase {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -99,37 +107,42 @@ import InstragramCard from "./InstragramCard.astro";
     align-items: center;
     margin: 0 auto;
     height: 350px;
+    flex-wrap: wrap;
   }
-  .content-owner-name{}
-  .content-owner-name p{
+
+  .content-owner-name {
+  }
+  .content-owner-name p {
     margin: 0;
     color: var(--secondary-color);
     font-weight: thin;
     font-size: 32px;
     display: flex;
+    min-width: 350px;
   }
-  .content-owner-phrase-citation{
+  .content-owner-phrase-citation {
     width: 100%;
     max-width: 500px;
     font-size: 24px;
     font-style: italic;
+    min-width: 350px;
   }
-  span{
+  span {
     color: rgba(255, 255, 255, 0.1);
   }
-  .ctc-banner{
+  .ctc-banner {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
   }
-  .ctc-text-element-btn{
+  .ctc-text-element-btn {
     display: flex;
     flex-direction: column;
     width: 500px;
     justify-content: space-between;
   }
-  .divisor-trace{
+  .divisor-trace {
     font-size: 40px;
     font-weight: bold;
     width: 100%;
@@ -140,23 +153,68 @@ import InstragramCard from "./InstragramCard.astro";
     justify-content: flex-end;
     color: var(--secondary-color);
   }
-  .content-target{
+  .content-target {
     color: var(--secondary-color);
   }
-  .content-owner-name{
+  .content-owner-name {
     opacity: 0;
     transform: translateX(-50px);
-    transition: opacity 1s ease, transform 1s ease;
+    transition:
+      opacity 1s ease,
+      transform 1s ease;
   }
-  .content-owner-phrase-citation{
+  .content-owner-phrase-citation {
     opacity: 0;
     transform: translateX(50px);
-    transition: opacity 1s ease, transform 1s ease;
+    transition:
+      opacity 1s ease,
+      transform 1s ease;
   }
   [data-observe].visible .content-owner-name,
-[data-observe].visible .content-owner-phrase-citation {
-  opacity: 1;
-  transform: translateX(0);
-}
+  [data-observe].visible .content-owner-phrase-citation {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
+  @media (max-width: 928px) {
+    .content-impact-phrase {
+      margin-top: 70px;
+      display: flex;
+      align-items: center;
+    }
+    .ctc-banner {
+      padding: 0 40px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .main-banner {
+    }
+  }
+
+  @media (max-width: 768px) {
+    .ctc-banner > .container-card-instagram {
+      display: none;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .content-impact-phrase {
+      display: flex;
+      margin-top: 0;
+      height: 250px;
+    }
+    .content-owner-phrase-citation {
+      display: none;
+    }
+    .main-banner {
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    h2 {
+      margin: 0;
+      padding: 0;
+    }
+  }
 </style>

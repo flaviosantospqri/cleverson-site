@@ -1,5 +1,4 @@
 ---
-import Button from "./Button.astro";
 import Icon from "./Icon.astro";
 
 const { title, properties, pathSvg } = Astro.props;
@@ -20,7 +19,7 @@ const { title, properties, pathSvg } = Astro.props;
   <ul class="list-card-service">
     {
       properties.map((item: string) => (
-        <li >
+        <li>
           <Icon
             xmlns="http://www.w3.org/2000/svg"
             color="#39D98A"
@@ -49,21 +48,29 @@ const { title, properties, pathSvg } = Astro.props;
     color: var(--light-color);
     background-color: rgba(217, 217, 217, 0.1);
     cursor: pointer;
-    margin-right: 10px;
+    margin: 10px;
+    height: 320px;
+    box-sizing: border-box;
+  }
+  @media (max-width: 768px) {
+    #container {
+      width: 500px;
+      min-width: 300px;
+    }
   }
   .container-header-card {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-  .container-header-card p{
+  .container-header-card p {
     font-weight: 400;
     font-size: 18px;
   }
-  .list-card-service{
+  .list-card-service {
     list-style-type: none;
     width: 100%;
-    display:flex;
+    display: flex;
     flex-direction: column;
     gap: 10px;
     align-items: flex-start;
@@ -75,18 +82,17 @@ const { title, properties, pathSvg } = Astro.props;
     justify-content: flex-start;
     margin-top: 10px;
   }
-  .container-button-card{
-    background-color: #FAFAFC;
-    color: #3A3A3C;
+  .container-button-card {
+    background-color: #fafafc;
+    color: #3a3a3c;
     min-width: 200px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    box-shadow: 0px 2px 6px 0px rgba(255,255,255,0.1);
+    box-shadow: 0px 2px 6px 0px rgba(255, 255, 255, 0.1);
     box-sizing: border-box;
     display: none;
   }
-  
 </style>

@@ -1,0 +1,47 @@
+---
+import CardService from "./CardService.astro";
+const { items } = Astro.props;
+---
+
+<div class="container-gallery-service">
+  <div>
+    {
+      items.map((item: any) => (
+        <div>
+          <CardService {...item} />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .container-gallery-service {
+    display: flex;
+    width: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+
+  .container-gallery-service::-webkit-scrollbar {
+    display: none;
+  }
+  .container-gallery-service > div {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 768px) {
+    .container-gallery-service > div {
+      flex-direction: column;
+      flex-wrap: nowrap;
+    }
+    .container-gallery-service {
+      align-items: center;
+      justify-content: center;
+    }
+  }
+</style>
