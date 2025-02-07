@@ -21,7 +21,7 @@ const totalPages = Math.ceil(items.length / itemsPerPage);
           {items
             .slice(pageIndex * itemsPerPage, (pageIndex + 1) * itemsPerPage)
             .map((item: any, itemIndex: any) => (
-              <div class="carousel-slide flex-shrink-0 w-1/4 p-2 transition-transform duration-700 ease-in-out">
+              <div class="carousel-slide flex-shrink-0 w-1/4 p-2 transition-transform duration-800 ease-in-out">
                 <CardService {...item} />
               </div>
             ))}

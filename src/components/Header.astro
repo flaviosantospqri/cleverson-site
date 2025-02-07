@@ -84,6 +84,7 @@ import InstragramCard from "./InstragramCard.astro";
     box-sizing: border-box;
   }
   .ctc-banner {
+    display: flex;
     position: relative;
     width: 100%;
     max-width: 1200px;
@@ -108,6 +109,7 @@ import InstragramCard from "./InstragramCard.astro";
     margin: 0 auto;
     height: 350px;
     flex-wrap: wrap;
+    padding: 20px;
   }
 
   .content-owner-name {
@@ -130,12 +132,12 @@ import InstragramCard from "./InstragramCard.astro";
   span {
     color: rgba(255, 255, 255, 0.1);
   }
-  .ctc-banner {
+  /* .ctc-banner {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-  }
+  } */
   .ctc-text-element-btn {
     display: flex;
     flex-direction: column;
@@ -183,11 +185,9 @@ import InstragramCard from "./InstragramCard.astro";
       align-items: center;
     }
     .ctc-banner {
-      padding: 0 40px;
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
     }
     .main-banner {
     }
@@ -211,6 +211,7 @@ import InstragramCard from "./InstragramCard.astro";
     .main-banner {
       box-sizing: border-box;
       overflow: hidden;
+      padding: 20px;
     }
     h2 {
       margin: 0;

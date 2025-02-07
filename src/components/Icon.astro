@@ -6,6 +6,7 @@ const {
   width = "24",
   height = "24",
   color = "#000",
+  classe = "",
   ...props
 } = Astro.props;
 if (!xmlns || !path) {
@@ -20,7 +21,13 @@ if (!xmlns || !path) {
   width={width}
   height={height}
   fill={color}
+  class={classe}
   {...props}
 >
-<path d={path}/>
+  <path d={path}></path>
 </svg>
+<style>
+  .shadow {
+    box-shadow: -8px 9px 10px -4px rgba(0, 0, 0, 0.06);
+  }
+</style>
