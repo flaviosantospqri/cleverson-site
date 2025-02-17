@@ -254,6 +254,7 @@ import Button from "./Button.astro";
     align-items: center;
     box-sizing: border-box;
     border-radius: 4px;
+    padding: 10px;
   }
   .newslatter-form {
     display: flex;
@@ -309,18 +310,26 @@ import Button from "./Button.astro";
     transform: translateX(0);
   }
   @media (max-width: 500px) {
+    .container-content-text {
+      padding: 10px;
+    }
     .container-content-text > div > h1 {
-      font-size: 24px;
+      font-size: 20px;
     }
     .container-content-text > div > h2 {
       font-size: 18px;
     }
     .content-effect {
-      font-size: 14px;
+      font-size: 16px;
+      line-height: 28px;
     }
     .paragraph-content-newslatter {
       font-size: 14px !important;
       margin-bottom: 10px !important;
+    }
+    .container-newslatter-form > div {
+      width: 90%;
+      margin: 0 auto;
     }
   }
 </style>
