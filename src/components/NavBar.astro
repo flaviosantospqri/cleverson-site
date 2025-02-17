@@ -9,7 +9,8 @@ import logoImage from "../assets/logo/logo.png";
       class="logo"
       src={logoImage}
       alt={"Imagem logo escritório cleverson borges sociedade individual de advocacia"}
-      width={150}
+      width={logoImage.width / 4}
+      densities={[1.5, 4]}
     />
   </div>
   <div class="menu">
@@ -81,6 +82,8 @@ import logoImage from "../assets/logo/logo.png";
 
   .logo {
       padding: 10px;
+      object-fit: cover;
+
     }
   
 
