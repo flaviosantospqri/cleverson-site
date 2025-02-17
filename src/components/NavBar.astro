@@ -5,12 +5,13 @@ import logoImage from "../assets/logo/logo.png";
 
 <div class="navbar">
   <div class="logo">
-    <Picture
+    <img
       class="logo"
-      src={logoImage}
+      src={logoImage.src}
       alt={"Imagem logo escritório cleverson borges sociedade individual de advocacia"}
-      width={logoImage.width / 4}
-      densities={[1.5, 4]}
+      decoding="async"
+      loading="lazy"
+      width="200"
     />
   </div>
   <div class="menu">
