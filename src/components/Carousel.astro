@@ -9,7 +9,7 @@ const totalPages = Math.ceil(items.length / itemsPerPage);
 <div class="relative w-full overflow-hidden">
   <div
     id="slidesContainer"
-    class="flex transition-transform duration-1500 ease-in-out"
+    class="flex transition-transform duration-3000 ease-in-out"
     style={`width: ${totalPages * 100}%`}
   >
     {
@@ -64,7 +64,7 @@ const totalPages = Math.ceil(items.length / itemsPerPage);
     setInterval(() => {
       currentSlide = (currentSlide + 1) % totalPages;
       showSlide(currentSlide);
-    }, 3000);
+    }, 4000);
 
     showSlide(currentSlide);
   });
