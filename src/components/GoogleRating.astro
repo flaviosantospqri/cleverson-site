@@ -23,6 +23,9 @@ import googleimage from "../assets/all/google.png";
 
   <script>
     async function fetchRatingData() {
+      const defaultRating = 5;
+      const defaultUserRatingsTotal = 15;
+
       try {
         const response = await fetch(
           "https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJCQtJeB1_mAARoTM1rCabijk&fields=rating,user_ratings_total&key=AIzaSyDrCK2uGIUeMjdhkkYKG6cMsWL9Yq-2aGo",
@@ -37,8 +40,9 @@ import googleimage from "../assets/all/google.png";
 
         console.log("Dados da API:", data);
 
-        const rating = data.result.rating;
-        const userRatingsTotal = data.result.user_ratings_total;
+        const rating = data.result?.rating ?? defaultRating;
+        const userRatingsTotal =
+          data.result?.user_ratings_total ?? defaultUserRatingsTotal;
 
         const starsFilled = "★".repeat(Math.round(rating));
         const starsEmpty = "☆".repeat(5 - Math.round(rating));
@@ -53,6 +57,15 @@ import googleimage from "../assets/all/google.png";
         }
       } catch (error) {
         console.error("Erro ao pegar dados da API:", error);
+
+        const ratingStarsElement = document.getElementById("rating-stars");
+        if (ratingStarsElement) {
+          ratingStarsElement.innerHTML = "★★★★★☆☆☆☆☆".slice(0, 5);
+        }
+        const ratingTextElement = document.getElementById("rating-text");
+        if (ratingTextElement) {
+          ratingTextElement.innerText = `${defaultRating} de 5 estrelas (${defaultUserRatingsTotal} avaliações)`;
+        }
       }
     }
 
